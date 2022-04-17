@@ -1,3 +1,4 @@
+use bevy::math::Vec3A;
 use bevy::{
     diagnostic::{Diagnostics, FrameTimeDiagnosticsPlugin},
     prelude::*,
@@ -202,7 +203,7 @@ fn manage_aabb(
             if enabled.0 {
                 commands.entity(entity).remove::<Aabb>();
             } else {
-                aabb.half_extents = Vec3::ONE * f32::MAX;
+                aabb.half_extents = Vec3A::from(Vec3::ONE * f32::MAX);
             }
         }
     }
